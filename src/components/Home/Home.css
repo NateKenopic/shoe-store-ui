@@ -1,4 +1,5 @@
 #home-top-image {
     width: 100%;
     height: 30%;
+    z-index: 1;
 }

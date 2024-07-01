@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Error from './components/Error/Error.jsx';
 import Mens from './components/Mens/Mens.jsx';
 import Login from './components/Login/Login.jsx';
+import CookieConsent from './components/Cookie-Consent/CookieConsent.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,5 +30,6 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
+    {/* <CookieConsent /> */}
   </React.StrictMode>,
 )

@@ -1,4 +1,4 @@
-import { Form } from "react-router-dom";
+import { Form, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./Login.css";
 import { loginUser } from "../../client/auth";
@@ -7,6 +7,7 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,15 +47,18 @@ function Login() {
     if (res.status === 200) {
       setUsername("");
       setPassword("");
+      localStorage.setItem("idtoken", resJson.token);
+      navigate(`/`, { replace: true });
     } else {
       setError("Some error occured");
     }
-
-    localStorage.setItem("idtoken", resJson.token);
   };
 
   return (
     <>
+      <div className="close-button">
+        <button onClick={() => navigate(-1)}>X</button>
+      </div>
       <div className="login">
         <div className="login-left">
           <div className="login-left-text">
